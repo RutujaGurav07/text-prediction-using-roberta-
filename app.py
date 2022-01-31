@@ -11,6 +11,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route("/login")
+def about():
+    return render_template('login.html')
+
+
 @app.route('/get_end_predictions', methods=['post'])
 def get_prediction_eos():
     try:
@@ -26,3 +31,4 @@ def get_prediction_eos():
 
 if __name__ == '__main__':
     app.run(host = "localhost", debug=True, port=9000, use_reloader=False)
+    
