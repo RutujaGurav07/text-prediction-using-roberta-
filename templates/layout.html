@@ -1,52 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-  <!-- Latest compiled and minified CSS -->
-  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Welcome</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <html>
+        <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Navigation Bar - Easy Tutorials</title>
+        <link rel="stylesheet" href="../static/css/navstyle.css">
+        </head>
+        <body>
+             <div class="nav-bar">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="\welcome"> <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="\login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="\home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="\about">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="\predict">Predict</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="\file" >Files </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="\contact" >Contact </a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-</head>
-
+                 <div class="menu-right">
+                     <span onClick="myFunction()">&#9776;</span>
+                    <ul id="menu">
+                    <li><a href='\login'>Login</a></li>
+                    <li><a href='\home'>Home</a></li>
+                    <li><a href='\about'>About Us</a></li>
+                    <li><a href='\predict'>Predict</a></li>
+                    <li><a href='\file'>Files</a></li>
+                    <li><a href='\contact'>Contact</a></li>
+                     </ul>
+                 </div>
+             
+            
+             </div>   
+            
+            <script>
+                function myFunction(){
+                   var x = document.getElementById("menu"); 
+                    
+                    if(x.style.display == "block")
+                    {
+                        x.style.display = "none";
+                    }
+                    else{
+                        x.style.display = "block";
+                    }
+                }
+            </script>
+        </body>
+        </html>
+        
 <body>
     {% block content %}
     {% endblock content %}
