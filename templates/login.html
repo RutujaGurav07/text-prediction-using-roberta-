@@ -1,17 +1,17 @@
-<html>
 
-<head>
-    <title>Login and Registration</title>
+{% extends 'layout.html'%}
+
+{% block content %}
+<div class="main_container">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
-</head>
 
-<body>
+
     <div class="main">
         <div class="form-box">
             <div class="button-box">
                 <div id="btn"></div>
-                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
-                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                <button type="button" class="login-toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="login-toggle-btn" onclick="register()">Register</button>
             </div>
             <div class="social-icons">
                 <img src="/static/photos/gp.png">
@@ -49,6 +49,6 @@
             z.style.left = "0";
         }
     </script>
-</body>
 
-</html>
+</div>
+{% endblock content %}

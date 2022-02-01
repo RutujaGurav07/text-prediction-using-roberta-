@@ -15,7 +15,7 @@
 
 .form-box {
     width: 380px;
-    height: 480px;
+    height: 540px;
     position: relative;
     margin: 6% auto;
     background: #fff;
@@ -24,14 +24,14 @@
 }
 
 .button-box {
-    width: 220px;
+    width: 240px;
     margin: 35px auto;
     position: relative;
     box-shadow: 0 0 20px 9px rgba(221, 240, 51, 0.425);
     border-radius: 30px;
 }
 
-.toggle-btn {
+.login-toggle-btn {
     padding: 10px 30px;
     cursor: pointer;
     background: transparent;
