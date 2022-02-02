@@ -4,9 +4,7 @@
 {% block content %}
 <div class="main_container">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
-
-
-    <div class="main">
+    
         <div class="form-box">
             <div class="button-box">
                 <div id="btn"></div>
@@ -17,8 +15,8 @@
                 <img src="/static/photos/gp.png">
             </div>
             <form id="login" class="input-grp">
-                <input type="text" class="input-field" placeholder="User Id" required>
-                <input type="password" class="input-field" placeholder="Password" required>
+                <input type="text" class="input-field" placeholder="Enter User Id" required>
+                <input type="password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
                 <button type="submit" class="submit-btn">Login</button>
             </form>
@@ -31,7 +29,6 @@
                 <button type="submit" class="submit-btn">Register</button>
             </form>
         </div>
-    </div>
     <script>
         var x = document.getElementById("login");
         var y = document.getElementById("register");
