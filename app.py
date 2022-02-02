@@ -7,11 +7,13 @@ import main
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def welcome():
     return render_template('welcome.html')
 
+@app.route("/home")
+def home():
+    return render_template('home.html' )
 
 @app.route("/login")
 def login():
@@ -21,17 +23,13 @@ def login():
 def main_prediction():
     return render_template('index.html' )
 
-@app.route("/home")
-def home():
-    return render_template('home.html' )
+@app.route("/file")
+def file():
+    return render_template('file.html' )
 
 @app.route("/about")
 def about():
     return render_template('about.html' )
-
-@app.route("/file")
-def file():
-    return render_template('file.html' )
 
 @app.route("/contact")
 def contact():
