@@ -38,8 +38,9 @@
   }
   
   .menu-right a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #487891;
+    color: white;
+    border-radius: 1rem;
   }
   
   .menu-right a.active {
