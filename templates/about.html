@@ -1,7 +1,32 @@
+{% extends 'layout.html'%} {% block content %}
 
-{% extends 'layout.html'%}
+<div class="main1">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/about.css') }}">
+    <h1 style="color:rgb(0, 195, 255);text-shadow: 1.2px 1px #fff;text-align: center">About Us</h1><br>
+    <h2 style="text-align: center;text-shadow: 0.5px 1px rgb(255, 170, 170);color: rgb(255, 252, 65);"> * Welcome To Text Prediction And Autocomplete Using NLP *</h2>
+    <br>
+    <h3 style="color: black;text-align: left;font-weight: 100;background: linear-gradient(to top, #79afff, #a6fff0);
+    ;width: 1000px;
+    border: 5px solid rgb(192, 255, 244);padding: 50px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+        * This website suggest next words to complete the sentence to the users.
+        <br><br>* It can be observed in applicative programs such as email editors, texting, and web browsers, found in computers and mobile devices.
+        <br><br>* Auto-completion refers to the completion of a word, or a phrase, as we start typing in a document.
+        <br> <br>* The prediction is based upon the selection of the most likely word from a set of frequently used words.
+        <br><br>* The text prediction task consists of editing text with the minimum number of keystrokes feasible.
+        <br><br>* This method is suggesting words that the user intended to write, and the system predicts the next word related to the previous work.
+        <br><br>* Currently, the natural language used in this method is in English, but the method is not language dependent from any point of view.
+        <br><br>* The system can work on the corpus of any natural language where the tokens are separated by space.
+        <br><br>* This approach can help the differently abled people to write correctly and increase the typing speed.
+        <br><br>* It is a technique which can prevent word error occurrences.
+        <br><br>* In the auto-correction (or text replacement) aspect of the text which is already typed is completed or replaced, it is used to either correct containing grammatical errors or to select the apt word in a dictionary. Although in this case
+        the process starts “after” finishing the word insertion, it can be considered a type of text prediction.
+        <br><br>* This webpage will perform the following tasks:
+        <br><br>1. Grammar Optimization
+        <br><br>2. Spellcheck
+        <br><br>3. Sentence Auto Completion
 
-{% block content %}
+    </h3>
+</div>
 
-<h1>This is About us page</h1>
+
 {% endblock content %}

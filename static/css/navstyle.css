@@ -1,82 +1,87 @@
-*
-{
-    margin: 0;
-    padding: 0; 
-}
-/*
-.main {
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/static/photos/bg.jpg);
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-}
-*/
-.nav-bar{
-    background: #1d4052;
-    color: #fff;
-    padding: 0.5rem 2rem 0.5rem 2rem ;
-    font-family: sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.menu-right{
-    text-align: right;
-    overflow: hidden;
-    background-color: #1d4052;
+
+/*
+.main {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/static/photos/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  position: absolute;
 }
+*/
+
+.nav-bar {
+  background: #1d4052;
+  color: #fff;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  font-family: sans-serif;
+}
+
+.menu-right {
+  text-align: right;
+  overflow: hidden;
+  background-color: #1d4052;
+}
+
 .logo {
   /* font-size: 20px; */
   font-weight: bolder;
   float: left;
-}  
-  .menu-right a {
-    /* float: left; */
-    display: inline-block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    justify-content: end;
-  }
-  
-  .menu-right a:hover {
-    background-color: #487891;
-    color: white;
-    border-radius: 1rem;
-  }
-  
-  .menu-right a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
-  .menu-right .icon {
-    display: none;
-  }
-  
+}
+
+.menu-right a {
+  /* float: left; */
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  justify-content: end;
+}
+
+.menu-right a:hover {
+  background-color: #487891;
+  color: white;
+  border-radius: 1rem;
+}
+
+.menu-right a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.menu-right .icon {
+  display: none;
+}
 
 @media screen and (max-width: 600px) {
-    .menu-right a:not(:first-child) {display: none;}
-    .menu-right a.icon {
+  .menu-right a:not(:first-child) {
+      display: none;
+  }
+  .menu-right a.icon {
       float: right;
       display: block;
-    }
   }
-  
-  @media screen and (max-width: 600px) {
-    .menu-right.responsive {position: relative;}
-    .menu-right.responsive .icon {
+}
+
+@media screen and (max-width: 600px) {
+  .menu-right.responsive {
+      position: relative;
+  }
+  .menu-right.responsive .icon {
       position: absolute;
       right: 0;
       top: 0;
-    }
-    .menu-right.responsive a {
+  }
+  .menu-right.responsive a {
       float: none;
       display: block;
       text-align: left;
-    }
   }
-
-
-
+}
