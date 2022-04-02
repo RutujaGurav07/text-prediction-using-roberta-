@@ -28,8 +28,8 @@ def login():
 
 @app.route('/predict', methods=['GET', 'POST']) 
 def main_prediction():
-    text=getting_text()
-    return render_template('index.html',Text = text )
+    # text=test()
+    return render_template('index.html' )
 
 
 @app.route("/file")
@@ -49,15 +49,25 @@ def contact():
 
 def getting_text() :
     if request.method == 'POST':
-        data = request.form.get('ckeditor')           # <--
+        data = request.form('editorData')  
+    
         return data
     else:
         return("Empty")
 
-@app.route('/get_end_predictions', methods=['GET','POST'])
+# @app.route('/get_end_predictions', methods=['POST'])
+# def test():
+#     output = request.get_json()
+#     print(output) # This is the output that was stored in the JSON within the browser
+#     print(type(output))#this shows the json converted as a python dictionary
+#     return output
+
+@app.route('/get_end_predictions', methods=['POST'])
 def get_prediction_eos():
     try:
-        input_text = ' '.join(request.json['input_text'].split())
+      
+        input_text = ' '.join(request.get_json().split())
+        print(input_text)
         input_text += ' <mask>'
         top_k = request.json['top_k']
         res = main.get_all_predictions(input_text, top_clean=int(top_k))
