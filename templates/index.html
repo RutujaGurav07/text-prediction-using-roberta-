@@ -1,5 +1,4 @@
-{% extends 'layout.html'%} 
-{% block content %}
+{% extends 'layout.html'%} {% block content %}
 <div class="main_container" style="font-family: Georgia, serif;background: linear-gradient(to right, #1d4052, #3792c0);margin-top: 25px; height: 600px; ">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,17 +37,28 @@
             </div>
 
             <div class="form-row">
-                <textarea class="form-control txt_input" id="input_text" rows="2"></textarea>
+                <textarea class="form-control txt_input" id="input_text" rows="3"></textarea>
             </div>
 
             <h4 style="color:white;"> Predictions </h4>
             <div class="form-row">
                 <div class="form-group col-md-2" style="color:white">
-                    <label for="text_paragraphs">ROBERTA</label>
-                    <textarea class="form-control txt_response" id="text_roberta" readonly></textarea>
+                    <label for="text_paragraphs">Predicted Words Using RoBERTa</label>
+                    <textarea class="form-control txt_response" id="text_roberta" randomly></textarea>
                 </div>
             </div>
+
         </div>
+
     </div>
+    <!--<button style="margin: 10px auto;
+    width: 120px;
+    height: 30px;
+    background: rgb(153, 0, 0);
+    color: white;
+    display: block;
+    margin: auto;
+    cursor: pointer;" type="submit">Save File</button>
+    -->
 </div>
 {% endblock content %}
