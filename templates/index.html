@@ -71,17 +71,20 @@
                 const s = JSON.stringify(editorData);
                 console.log(s);
                 $.ajax({
-                    url: '/get_end_predictions',
+                    url: 'get_end_predictions',
                     type: "POST",
-                    contentType: "application/json'",
-                    data: s,
                     dataType: 'json',
+                    data: JSON.stringify(editorData),
+                    contentType: "application/json",
+
 
                     success: function (data, textStatus, jqXHR) {
                         console.log('Success!');
+                        console.log(data)
+                        $('#text_roberta').val(data['roberta'])
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        console.log('Error occurred!',errorThrown);
+                        console.log('Error occurred!', errorThrown);
                     }
 
                 })
@@ -91,22 +94,6 @@
         .catch(error => {
             console.error(error);
         });
-
-    // CKEDITOR.replace('input_text1');
-    // timer = setInterval(updateDiv,2000);
-    // function updateDiv() {
-    //     const editorData = CKEDITOR.instances['input_text1'].getData();
-    //     const s = JSON.stringify(editorData);
-    //                 console.log(s);
-    //                 $.ajax({
-    //                     type: "POST",
-    //                     contentType: "application/json",
-    //                     data: JSON.stringify(s),
-    //             })
-    // }
-
-
-
 </script>
 
 {% endblock content %}
