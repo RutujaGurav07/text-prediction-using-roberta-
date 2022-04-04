@@ -33,5 +33,5 @@ def get_all_predictions(text_sentence, top_clean=5):
     with torch.no_grad():
         predict = roberta_model(input_ids)[0]
     roberta = decode(roberta_tokenizer, predict[0, mask_idx, :].topk(top_k).indices.tolist(), top_clean)
-
+    print(roberta) 
     return {'roberta': roberta}

@@ -31,11 +31,6 @@ jQuery(document).ready(function () {
                 }
             }).done(function (jsondata, textStatus, jqXHR) {
                 console.log(jsondata)
-                $('#text_bert').val(jsondata['bert'])
-                $('#text_xlnet').val(jsondata['xlnet'])
-                $('#text_xlm').val(jsondata['xlm'])
-                $('#text_bart').val(jsondata['bart'])
-                $('#text_electra').val(jsondata['electra'])
                 $('#text_roberta').val(jsondata['roberta'])
             }).fail(function (jsondata, textStatus, jqXHR) {
                 console.log(jsondata)
@@ -61,11 +56,6 @@ jQuery(document).ready(function () {
             }
         }).done(function (jsondata, textStatus, jqXHR) {
             console.log(jsondata)
-            $('#mask_text_bert').val(jsondata['bert'])
-            $('#mask_text_xlnet').val(jsondata['xlnet'])
-            $('#mask_text_xlm').val(jsondata['xlm'])
-            $('#mask_text_bart').val(jsondata['bart'])
-            $('#mask_text_electra').val(jsondata['electra'])
             $('#mask_text_roberta').val(jsondata['roberta'])
         }).fail(function (jsondata, textStatus, jqXHR) {
             console.log(jsondata)

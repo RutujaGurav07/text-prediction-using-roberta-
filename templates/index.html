@@ -10,9 +10,10 @@
     <script src="../static/js/jquery-3.4.1.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/bootstrap-suggest.js"></script>
-    <script src="../static/js/app.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
+    <!-- <script src="../static/js/app.js"></script> -->
+    <!-- <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script> -->
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans:300|Oxygen|Material+Icons"
@@ -43,24 +44,9 @@
                 </div>
             </div>
 
-            <!-- <form method="POST">
-                <div>
-                    {{ ckeditor.create() }}
-                    <input type="submit" value="save">
-                </div>
-
-            </form>
-
-            {{ ckeditor.load() }}
-            {{ ckeditor.config(name=body) }}
-            {{Text|safe}} -->
-            
-            <textarea class="form-control txt_response" id="input_text1">
+            <textarea class="form-control txt_response" id="editor">
 
         </textarea>
-            <!-- {{Text|safe}} -->
-
-
 
             <h4 style="color:white;"> Predictions </h4>
             <div class="form-row">
@@ -78,25 +64,46 @@
 <script>
 
     ClassicEditor
-        .create(document.querySelector('#input_text1'))
+        .create(document.querySelector('#editor'))
         .then(editor => {
             editor.model.document.on('change:data', () => {
                 editorData = editor.getData();
                 const s = JSON.stringify(editorData);
                 console.log(s);
                 $.ajax({
-                    url: "/get_end_predictions",
+                    url: '/get_end_predictions',
                     type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(s)
-                });
-            });
+                    contentType: "application/json'",
+                    data: s,
+                    dataType: 'json',
+
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('Success!');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log('Error occurred!',errorThrown);
+                    }
+
+                })
+            })
+
         })
         .catch(error => {
             console.error(error);
         });
 
-
+    // CKEDITOR.replace('input_text1');
+    // timer = setInterval(updateDiv,2000);
+    // function updateDiv() {
+    //     const editorData = CKEDITOR.instances['input_text1'].getData();
+    //     const s = JSON.stringify(editorData);
+    //                 console.log(s);
+    //                 $.ajax({
+    //                     type: "POST",
+    //                     contentType: "application/json",
+    //                     data: JSON.stringify(s),
+    //             })
+    // }
 
 
 
