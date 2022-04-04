@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <link rel="stylesheet" href="../static/css/navstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-image: url('../static/photos/home.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+
+        <div class="menu-right" id="myTopnav">
+            <a class="logo" href="\"><i class="fa fa-fw fa-eercast"></i>Text Prediction </a>
+            <a href='\home'><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href='\login'><i class="fa fa-fw fa-user"></i>Log In/Register</a>
+            <a href='\predict'><i class="fa fa-fw fa-search"></i> Predict</a>
+            <a href='\file'><i class="fa fa-fw fa-list"></i>Files</a>
+            <a href='\about'><i class="fa fa-fw fa-info"></i>About Us</a>
+            <a href='\contact'><i class="fa fa-fw fa-envelope"></i> Contact</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "menu-right") {
+                x.className += " responsive";
+            } else {
+                x.className = "menu-right";
+            }
+        }
+    </script>
+
+    <body>
+        {% block content %} {% endblock content %}
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+
+    </body>
+    <footer style="color: white;text-align: center;margin-top: 600px;">
+        <p>Created By: Rutuja Gurav , Isha Shelke , Samira Sutar , Ritali Waghulde</p>
+        <p>Group No: 27</p>
+        <p>STES's Smt.Kashibai Navale College Of Engineering,Vadgaon Bk,Pune.</p>
+    </footer>
+
+</html>
