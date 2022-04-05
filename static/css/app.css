@@ -48,3 +48,6 @@ h4 {
 	margin-top: 7px !important;
 }
 
+.ck-editor__editable_inline {
+    min-height: 350px !important;
+}
