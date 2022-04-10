@@ -8,7 +8,10 @@
     <script src="../static/js/jquery-3.4.1.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/bootstrap-suggest.js"></script>
-    <script src="../static/js/app.js"></script>
+    <!-- <script src="../static/js/app.js"></script> -->
+    <!-- <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script> -->
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans:300|Oxygen|Material+Icons" rel="stylesheet">
@@ -16,13 +19,15 @@
     <div class="overlay">
         <div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>
     </div>
-    <h2 style="background: linear-gradient(to right, #1050ffaf, #06e2ffd2);">Next Word Prediction Using RoBERTa Model </h2>
+    <h2 style="background: linear-gradient(to right, #1050ffaf, #06e2ffd2);">Next Word Prediction Using RoBERTa Model
+    </h2>
     <div class="row">
         <div class="col-sm-1"></div>
 
         <div class="col-sm-10">
             <center>
-                <h3 style="color:white; text-shadow: 2px 2px 8px #7a04c996;">Word Prediction with Transformers</h3>
+                <h3 style="color:rgb(255, 255, 255); text-shadow: 2px 2px 8px #7a04c996;">Word Prediction with Transformers
+                </h3>
             </center>
             <div class="form-row">
                 <div class="form-group col-md-8">
@@ -37,28 +42,56 @@
             </div>
 
             <div class="form-row">
-                <textarea class="form-control txt_input" id="input_text" rows="3"></textarea>
-            </div>
-
-            <h4 style="color:white;"> Predictions </h4>
-            <div class="form-row">
-                <div class="form-group col-md-2" style="color:white">
-                    <label for="text_paragraphs">Predicted Words Using RoBERTa</label>
-                    <textarea class="form-control txt_response" id="text_roberta" randomly></textarea>
+                <div class="form-group col-md-8">
+                    <div class="editor_cotainer">
+                        <textarea class="form-control txt_response" id="editor"> </textarea>
+                    </div>
+                </div>
+                <div class="form-group col-md-2" style="color:white;text-align: center;">
+                    <h4 style="color:white;text-align: center;"> Predictions </h4>
+                    <label for="text_paragraphs">ROBERTA</label>
+                    <textarea class="form-control txt_response" id="text_roberta" readonly></textarea>
                 </div>
             </div>
 
         </div>
-
     </div>
-    <!--<button style="margin: 10px auto;
-    width: 120px;
-    height: 30px;
-    background: rgb(153, 0, 0);
-    color: white;
-    display: block;
-    margin: auto;
-    cursor: pointer;" type="submit">Save File</button>
-    -->
 </div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+
+    .then(editor => {
+            editor.model.document.on('change:data', () => {
+                editorData = editor.getData();
+                const s = JSON.stringify(editorData);
+                console.log(s);
+                $.ajax({
+                    url: 'get_end_predictions',
+                    type: "POST",
+                    dataType: 'json',
+                    data: JSON.stringify(editorData),
+                    contentType: "application/json",
+
+
+                    success: function(data, textStatus, jqXHR) {
+                        console.log('Success!');
+                        console.log(data)
+                        $('#text_roberta').val(data['roberta'])
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log('Error occurred!', errorThrown);
+                    }
+
+                })
+            })
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
 {% endblock content %}
