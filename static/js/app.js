@@ -1,21 +1,18 @@
 var data = []
 var token = ""
+var p_text=""
 
 jQuery(document).ready(function () {
     closePopUp();
-
     var slider = $('#max_words')
     slider.on('change mousemove', function (evt) {
         $('#label_max_words').text('Top k words: ' + slider.val())
     })
-
     var slider_mask = $('#max_words_mask')
     slider_mask.on('change mousemove', function (evt) {
         $('#label_max_words').text('Top k words: ' + slider_mask.val())
     })
-
     $('#input_text').on('keyup', function (e) {
-
         if (e.key == ' ') {
             $.ajax({
                 url: '/get_end_predictions',
@@ -35,17 +32,13 @@ jQuery(document).ready(function () {
             }).done(function (jsondata, textStatus, jqXHR) {
                 // console.log(jsondata['roberta'])
                 append_data(jsondata['roberta'])
-
-
                 
-
                 $('#text_roberta').val(jsondata['roberta'])
             }).fail(function (jsondata, textStatus, jqXHR) {
                 console.log(jsondata)
             });
         }
     })
-
     $('#btn-process').on('click', function () {
         $.ajax({
             url: '/get_mask_predictions',
@@ -78,22 +71,33 @@ function append_data(data) {
     var words = data.split("\n");
     console.log(words);
     console.log(typeof (data))
-
     var start = txtarea.selectionStart;
     var finish = txtarea.selectionEnd;
     var list = "<ul class = 'pred_list' >"
     for (let i of words) {
         list += `<li class ="P_values">${i}</li>`;
-
     }
     list += "</ul>";
-
     document.getElementById("newpost").innerHTML = list;
 
     newpost.offset(getCursorXY(txtarea, start, 20)).show();
+    document.querySelector('ul').addEventListener('click', function(e) {   // 1.
+        var selected;
+
+        if(e.target.tagName === 'LI') {                                      // 2.
+          selected= document.querySelector('li.selected');                   // 2a.
+          if(selected) selected.className= '';                               // "
+          e.target.className= 'selected';                                    // 2b.
+          p_text=e.target.innerText;
+          document.getElementById("input_text").value += p_text;
+          closePopUp();
+        }
+
+
+      });
+
 
 }
-
 
 function getSel() {
     // obtain the object reference for the textarea>
@@ -111,6 +115,7 @@ function getSel() {
     var newText = allText.substring(0, start) + sel + allText.substring(finish, allText.length);
     txtarea.value = newText;
     $('#newpost').offset({ top: 0, left: 0 }).hide();
+
 }
 function closePopUp() {
     $('#newpost').offset({ top: 0, left: 0 }).hide();
@@ -159,4 +164,3 @@ const getCursorXY = (input, selectionPoint, offset) => {
         top: inputY + spanY + offset,
     }
 }
-

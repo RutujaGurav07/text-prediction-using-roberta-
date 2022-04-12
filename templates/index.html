@@ -9,7 +9,9 @@
     <script src="../static/js/jquery-3.4.1.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/bootstrap-suggest.js"></script>
+
     <script src="../static/js/app.js?newversion"></script>
+
 
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans:300|Oxygen|Material+Icons"
@@ -25,7 +27,8 @@
 
         <div class="col-sm-10">
             <center>
-                <h3 style="color:white; text-shadow: 2px 2px 8px #7a04c996;">Word Prediction with Transformers</h3>
+                <h3 style="color:rgb(255, 255, 255); text-shadow: 2px 2px 8px #7a04c996;">Word Prediction with Transformers
+                </h3>
             </center>
             <div class="form-row">
                 <div class="form-group col-md-8">
@@ -56,16 +59,42 @@
             </div> -->
 
         </div>
-
     </div>
-    <!--<button style="margin: 10px auto;
-    width: 120px;
-    height: 30px;
-    background: rgb(153, 0, 0);
-    color: white;
-    display: block;
-    margin: auto;
-    cursor: pointer;" type="submit">Save File</button>
-    -->
 </div>
+
+<script>
+    // ClassicEditor
+    //     .create(document.querySelector('#editor'))
+
+    // .then(editor => {
+    //         editor.model.document.on('change:data', () => {
+    //             editorData = editor.getData();
+    //             const s = JSON.stringify(editorData);
+    //             console.log(s);
+    //             $.ajax({
+    //                 url: 'get_end_predictions',
+    //                 type: "POST",
+    //                 dataType: 'json',
+    //                 data: JSON.stringify(editorData),
+    //                 contentType: "application/json",
+
+
+    //                 success: function(data, textStatus, jqXHR) {
+    //                     console.log('Success!');
+    //                     console.log(data)
+    //                     $('#text_roberta').val(data['roberta'])
+    //                 },
+    //                 error: function(jqXHR, textStatus, errorThrown) {
+    //                     console.log('Error occurred!', errorThrown);
+    //                 }
+
+    //             })
+    //         })
+
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //     });
+</script>
+
 {% endblock content %}
