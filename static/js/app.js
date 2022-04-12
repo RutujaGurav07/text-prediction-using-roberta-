@@ -1,5 +1,6 @@
 var data = []
 var token = ""
+var p_text=""
 
 jQuery(document).ready(function () {
     closePopUp();
@@ -91,6 +92,21 @@ function append_data(data) {
     document.getElementById("newpost").innerHTML = list;
 
     newpost.offset(getCursorXY(txtarea, start, 20)).show();
+    document.querySelector('ul').addEventListener('click', function(e) {   // 1.
+        var selected;
+        
+        if(e.target.tagName === 'LI') {                                      // 2.
+          selected= document.querySelector('li.selected');                   // 2a.
+          if(selected) selected.className= '';                               // "
+          e.target.className= 'selected';                                    // 2b.
+          p_text=e.target.innerText;
+          document.getElementById("input_text").value += p_text;
+          closePopUp();
+        }
+          
+        
+      });
+
 
 }
 
@@ -111,6 +127,7 @@ function getSel() {
     var newText = allText.substring(0, start) + sel + allText.substring(finish, allText.length);
     txtarea.value = newText;
     $('#newpost').offset({ top: 0, left: 0 }).hide();
+   
 }
 function closePopUp() {
     $('#newpost').offset({ top: 0, left: 0 }).hide();
@@ -159,4 +176,5 @@ const getCursorXY = (input, selectionPoint, offset) => {
         top: inputY + spanY + offset,
     }
 }
+
 
