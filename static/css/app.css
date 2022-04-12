@@ -47,4 +47,45 @@ h4 {
 #max_paragraphs {
 	margin-top: 7px !important;
 }
+#input_text {
+	width: 70%;
+	height: 60%;
+	overflow: hidden;
+	position: fixed
+}
+#newpost {
+	position: absolute;
+	background-color: #c9d9fa;
+	border: 1px solid #444b63;
+	border-radius: 10px;
+	padding: 5px;
+	width: auto;
+	height: max-content;
+}
+#newpost span {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 5px;
+	font-size: 22px;
+}
+#newpost div {
+	color: #0000ff;
+	padding: 10px;
+	margin-right: 10px;
+	width: auto;
+	cursor: pointer;
+	display: table-caption;
+}
+.pred_list{
+	margin: 5px;
 
+}
+.P_values {
+	list-style:none;
+	padding: 2px;
+}
+li:hover{
+	background-color: rgb(83, 107, 153);
+	color: white;
+}
