@@ -83,11 +83,7 @@ function append_data(data) {
     newpost.offset(getCursorXY(txtarea, start, 20)).show();
     document.querySelector('ul').addEventListener('click', function(e) {   // 1.
         var selected;
-<<<<<<< HEAD
-
-=======
         
->>>>>>> e272d81dd47d7293449e550dc5cfe2af509069f4
         if(e.target.tagName === 'LI') {                                      // 2.
           selected= document.querySelector('li.selected');                   // 2a.
           if(selected) selected.className= '';                               // "
@@ -96,13 +92,6 @@ function append_data(data) {
           document.getElementById("input_text").value += p_text;
           closePopUp();
         }
-<<<<<<< HEAD
-=======
-          
-        
-      });
-
->>>>>>> e272d81dd47d7293449e550dc5cfe2af509069f4
 
 
       });
@@ -126,11 +115,6 @@ function getSel() {
     var newText = allText.substring(0, start) + sel + allText.substring(finish, allText.length);
     txtarea.value = newText;
     $('#newpost').offset({ top: 0, left: 0 }).hide();
-<<<<<<< HEAD
-
-=======
-   
->>>>>>> e272d81dd47d7293449e550dc5cfe2af509069f4
 }
 function closePopUp() {
     $('#newpost').offset({ top: 0, left: 0 }).hide();
@@ -179,8 +163,3 @@ const getCursorXY = (input, selectionPoint, offset) => {
         top: inputY + spanY + offset,
     }
 }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> e272d81dd47d7293449e550dc5cfe2af509069f4
