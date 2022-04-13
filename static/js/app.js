@@ -1,6 +1,6 @@
 var data = []
 var token = ""
-var p_text=""
+var p_text = ""
 
 jQuery(document).ready(function () {
     closePopUp();
@@ -32,7 +32,7 @@ jQuery(document).ready(function () {
             }).done(function (jsondata, textStatus, jqXHR) {
                 // console.log(jsondata['roberta'])
                 append_data(jsondata['roberta'])
-                
+
                 $('#text_roberta').val(jsondata['roberta'])
             }).fail(function (jsondata, textStatus, jqXHR) {
                 console.log(jsondata)
@@ -62,8 +62,23 @@ jQuery(document).ready(function () {
             console.log(jsondata)
         });
     })
-   
+
+
+    $("#paramsSave").click(function () {
+        var file_name = $('#file_name').val()
+        console.log(file_name);
+        $("#exampleModalCenter").modal("hide");      
+        $('#exampleModalCenter').find('form').trigger('reset');
+      });
+      
+
+
+
 })
+function Get_close() {
+
+
+}
 function append_data(data) {
     var newpost = $('#newpost');
     var txtarea = document.getElementById("input_text");
@@ -81,20 +96,20 @@ function append_data(data) {
     document.getElementById("newpost").innerHTML = list;
 
     newpost.offset(getCursorXY(txtarea, start, 20)).show();
-    document.querySelector('ul').addEventListener('click', function(e) {   // 1.
+    document.querySelector('ul').addEventListener('click', function (e) {   // 1.
         var selected;
-        
-        if(e.target.tagName === 'LI') {                                      // 2.
-          selected= document.querySelector('li.selected');                   // 2a.
-          if(selected) selected.className= '';                               // "
-          e.target.className= 'selected';                                    // 2b.
-          p_text=e.target.innerText;
-          document.getElementById("input_text").value += p_text;
-          closePopUp();
+
+        if (e.target.tagName === 'LI') {                                      // 2.
+            selected = document.querySelector('li.selected');                   // 2a.
+            if (selected) selected.className = '';                               // "
+            e.target.className = 'selected';                                    // 2b.
+            p_text = e.target.innerText;
+            document.getElementById("input_text").value += p_text;
+            closePopUp();
         }
 
 
-      });
+    });
 
 
 }
@@ -163,3 +178,4 @@ const getCursorXY = (input, selectionPoint, offset) => {
         top: inputY + spanY + offset,
     }
 }
+

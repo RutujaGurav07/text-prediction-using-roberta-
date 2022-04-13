@@ -48,10 +48,10 @@ h4 {
 	margin-top: 7px !important;
 }
 #input_text {
-	width: 70%;
-	height: 60%;
+	width: 60%;
+	height: 40%;
 	overflow: hidden;
-	position: fixed
+	position: fixed;
 }
 #newpost {
 	position: absolute;
@@ -94,3 +94,7 @@ li:hover{
 	list-style: none;
 	color :white 
   }
+  .Save_button{
+	bottom :20%  ;
+	position: fixed;
+}
